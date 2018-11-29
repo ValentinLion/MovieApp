@@ -2,4 +2,4 @@
 From tomcat:8-jre8
 
 # Copy to images tomcat path
-ADD ../projet-dlc/target/projet-dlc-1.0.war /usr/local/tomcat/webapps/
+ADD ./projet-dlc/target/projet-dlc-1.0.war /usr/local/tomcat/webapps/
