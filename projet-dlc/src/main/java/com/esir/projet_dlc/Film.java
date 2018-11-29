@@ -1,30 +1,71 @@
 package com.esir.projet_dlc;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
-public class Movie {
+@Entity
+@Table(name = "film")
+public class Film implements Serializable {
+	
 	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long idFilm;
+	
+	@Column(name = "tconst")
     private String tconst;
 
+	@Column(name = "titleType")
 	private String titleType;
 	
+	@Column(name = "primaryTitle")
 	private String primaryTitle;
 	
+	@Column(name = "originalTitle")
 	private String originalTitle;
 	
+	@Column(name = "isAdult")
 	private int isAdult;
 	
+	@Column(name = "startYear")
 	private String startYear;
 	
+	@Column(name = "endYear")
 	private String endYear;
 	
+	@Column(name = "runtimeMinutes")
 	private String runtimeMinutes;
 	
+	@Column(name = "genres")
 	private String genres;
+
+	private Note note;
+	
+	@OneToOne
+    @JoinColumn(name = "idNote")
+    public Note getNote() {
+        return note;
+    }
+		
+	public Long getIdFilm() {
+		return idFilm;
+	}
+
+	public void setIdFilm(Long idFilm) {
+		this.idFilm = idFilm;
+	}
+
+	public void setNote(Note note) {
+		this.note = note;
+	}
 
 	public String getTconst() {
 		return tconst;
