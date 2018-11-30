@@ -12,20 +12,23 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
 		
-		<title>Movie Review | Review</title>
+		<title>Pug's Movies | Films</title>
+		<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    	<link rel="stylesheet" href="/webjars/font-awesome/css/font-awesome.min.css"></link>
+
 
 		<!-- Loading third party fonts -->
 		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
 		<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-		<!-- Loading main css file -->
-		<link rel="stylesheet" href="style.css">
+		<!-- Loading main css file -->		
+		<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
 		
-		<!--[if lt IE 9]>
-		<script src="js/ie-support/html5.js"></script>
-		<script src="js/ie-support/respond.js"></script>
-		<![endif]-->
-
+		<script type="text/javascript" src="/resources/js/app.js"></script>
+		<script type="text/javascript" src="/resources/js/plugins.js"></script>
+		
 	</head>
 
 
@@ -38,7 +41,7 @@
 					<a href="index.html" id="branding">
 						<img src="images/logo.png" alt="" class="logo">
 						<div class="logo-copy">
-							<h1 class="site-title">Company Name</h1>
+							<h1 class="site-title">Pug's Movies</h1>
 							<small class="site-description">Tagline goes here</small>
 						</div>
 					</a> <!-- #branding -->
@@ -46,11 +49,8 @@
 					<div class="main-navigation">
 						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
 						<ul class="menu">
-							<li class="menu-item"><a href="index.html">Home</a></li>
-							<li class="menu-item"><a href="about.html">About</a></li>
-							<li class="menu-item current-menu-item"><a href="review.html">Movie reviews</a></li>
-							<li class="menu-item"><a href="joinus.html">Join us</a></li>
-							<li class="menu-item"><a href="contact.html">Contact</a></li>
+							<li class="menu-item"><a href="index.html">Accueil</a></li>
+							<li class="menu-item current-menu-item"><a href="liste.html">Trouver un film</a></li>
 						</ul> <!-- .menu -->
 
 						<form action="#" class="search-form">
@@ -84,17 +84,19 @@
 								<option value="#">2014</option>
 							</select>
 						</div>
-						<div class="movie-list">
-								<c:forEach items="${listeFilms}" var="film">
+						
+						<div class="movie">
+							<c:forEach items="${listeFilms}" var="film">
 
-							<div class="movie">
-								<figure class="movie-poster"><img src="dummy/thumb-3.jpg" alt="#"></figure>
-								<div class="movie-title"><a href="single.html">    <c:out value="${film.primaryTitle}" />
-								</a></div>
-								<p>Sed ut perspiciatis unde omnis iste natus error voluptatem doloremque.</p>
-							</div>
+								<div class="movie">
+									<figure class="movie-poster"><img src="dummy/thumb-3.jpg" alt="#"></figure>
+									<div class="movie-title"><a href="single.html">  <c:out value="${film.primaryTitle}" />
+									</a></div>
+									<p>Sed ut perspiciatis unde omnis iste natus error voluptatem doloremque.</p>
+								</div>
 							
 							</c:forEach>
+							
 						</div> <!-- .movie-list -->
 
 						<div class="pagination">
@@ -109,7 +111,7 @@
 					</div>
 				</div> <!-- .container -->
 			</main>
-			<footer class="site-footer">
+			<footer class="site-footer">	
 				<div class="container">
 					<div class="row">
 						<div class="col-md-2">
