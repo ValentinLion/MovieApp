@@ -42,7 +42,7 @@
 						<img src="images/logo.png" alt="" class="logo">
 						<div class="logo-copy">
 							<h1 class="site-title">Pug's Movies</h1>
-							<small class="site-description">Tagline goes here</small>
+							<small class="site-description"></small>
 						</div>
 					</a> <!-- #branding -->
 

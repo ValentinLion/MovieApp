@@ -29,7 +29,6 @@ public class ListeFilmsController {
         
         List<Film> listeFilms = filmRepository.findAll();
         
-       // model.addObject("listeFilms",listeFilms); 
 		model.put("listeFilms", listeFilms);
 		model.put("test", "test");
 
