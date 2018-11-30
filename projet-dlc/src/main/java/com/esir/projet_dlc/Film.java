@@ -50,7 +50,7 @@ public class Film implements Serializable {
 	private Note note;
 	
 	@OneToOne
-    @JoinColumn(name = "idNote")
+    @JoinColumn(name = "tconst")
     public Note getNote() {
         return note;
     }

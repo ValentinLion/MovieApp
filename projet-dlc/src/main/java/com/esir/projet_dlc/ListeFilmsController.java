@@ -1,6 +1,7 @@
 package com.esir.projet_dlc;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
@@ -23,14 +25,31 @@ public class ListeFilmsController {
 	
 	
 	@GetMapping("/liste")
-    public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
-        model.addAttribute("name", name);
+    public String voirListeFilms(Map<String, Object> model) {
         
-        List<Film> liste = filmRepository.findAll();
+        List<Film> listeFilms = filmRepository.findAll();
         
-        model.addAllAttributes(liste);        
+       // model.addObject("listeFilms",listeFilms); 
+		model.put("listeFilms", listeFilms);
+		model.put("test", "test");
+
         return "liste";
     }
 
+	
+	@GetMapping("/film")
+	public String voirDetailFilm(@RequestParam(name="id", required=true, defaultValue="1") String idFilm,ModelAndView model) {
+		
+		Optional<Film> film = filmRepository.findById(Long.parseLong(idFilm));
+		
+		if(film.isPresent()) {
+		        model.addObject("film",film.get());        
+		}
+		else {
+			
+		}
+
+		return "film";
+	}
 
 }

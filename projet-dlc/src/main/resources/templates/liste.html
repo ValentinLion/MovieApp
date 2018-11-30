@@ -15,12 +15,11 @@
     <link rel="stylesheet" href="/webjars/font-awesome/css/font-awesome.min.css"></link>
 </head>
 <body>
-   <p th:text="'Liste des films, ' + ${name} + '!'" />
+	<p> Liste des Films d</p>
 
-   <c:forEach items="${films}" var="person">
-     <tr>
-      <td>film</td>
-     </tr>
-   </c:forEach>
+   	<tr th:each="film : ${listeFilms}">
+    	<td th:text="${film.primaryTitle}">${film.primaryTitle}</td>	
+	</tr> 
+
 </body>
 </html>
