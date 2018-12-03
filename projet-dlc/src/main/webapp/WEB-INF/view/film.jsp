@@ -73,7 +73,7 @@
 						<div class="breadcrumbs">
 							<a href="index.html">Home</a>
 							<a href="review.html">Movie Review</a>
-							<span>${film.primaryTitle}</span>
+							<span>${film.movieTitle}</span>
 						</div>
 
 						<div class="content">
@@ -82,14 +82,14 @@
 									<figure class="movie-poster"><img src="dummy/single-image.jpg" alt="#"></figure>
 								</div>
 								<div class="col-md-6">
-									<h2 class="movie-title"><c:out value="${film.primaryTitle}" /></h2>
+									<h2 class="movie-title"><c:out value="${film.movieTitle}" /></h2>
 									
 									<ul class="movie-meta">
 										<li><strong>Rating:</strong> 
 											<div class="star-rating" title="Rated 4.00 out of 5"><span style="width:80%"><strong class="rating">4.00</strong> out of 5</span></div>
 										</li>
-										<li><strong>Length:</strong>${film.runtimeMinutes}</li>
-										<li><strong>Premiere:</strong>${film.startYear}</li>
+										<li><strong>Length:</strong> ${film.duration} minutes</li>
+										<li><strong>Premiere:</strong>${film.titleYear}</li>
 										<li><strong>Category:</strong><c:out value="${film.genres}" /></li>
 									</ul>
 

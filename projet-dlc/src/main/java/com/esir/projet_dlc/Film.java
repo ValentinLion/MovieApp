@@ -13,122 +13,206 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "film")
+@Table(name = "data")
 public class Film implements Serializable {
 	
 	@Id
+	@Column(name = "id_data")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long idFilm;
+	private Long idData;
 	
-	@Column(name = "tconst")
-    private String tconst;
+	@Column(name = "director_name")
+    private String directorName;
 
-	@Column(name = "titleType")
-	private String titleType;
+	@Column(name = "num_critic_for_reviews")
+    private String numCriticForReviews;
+
+	@Column(name = "plot_keywords")
+    private String plotKeywords;
 	
-	@Column(name = "primaryTitle")
-	private String primaryTitle;
+	@Column(name = "num_user_for_reviews")
+    private String numUserForReviews;
 	
-	@Column(name = "originalTitle")
-	private String originalTitle;
+	@Column(name = "imdb_score")
+    private Float imdbScore;
 	
-	@Column(name = "isAdult")
-	private int isAdult;
+	@Column(name = "title_year")
+    private String titleYear;
 	
-	@Column(name = "startYear")
-	private String startYear;
+	@Column(name = "budget")
+    private String budget;
 	
-	@Column(name = "endYear")
-	private String endYear;
+	@Column(name = "content_rating")
+    private String contentRating;
 	
-	@Column(name = "runtimeMinutes")
-	private String runtimeMinutes;
+	@Column(name = "country")
+    private String country;
+	
+	@Column(name = "language")
+    private String language;
+	
+	@Column(name = "movie_imdb_link")
+    private String movieImdbLink;
+	
+	@Column(name = "duration")
+    private String duration;
+	
+	@Column(name = "actor_3_name")
+    private String actor3Name;
+	
+	@Column(name = "num_voted_users")
+    private String numVotedUsers;
+	
+	@Column(name = "movie_title")
+    private String movieTitle;
+
+	
+	@Column(name = "actor_1_name")
+    private String actor1Name;
 	
 	@Column(name = "genres")
-	private String genres;
-
-	private Note note;
+    private String genres;
 	
-	@OneToOne
-    @JoinColumn(name = "tconst")
-    public Note getNote() {
-        return note;
-    }
-		
-	public Long getIdFilm() {
-		return idFilm;
+	@Column(name = "gross")
+    private String gross;
+	
+	@Column(name = "actor_2_name")
+    private String actor2Name;
+
+	public Long getIdData() {
+		return idData;
 	}
 
-	public void setIdFilm(Long idFilm) {
-		this.idFilm = idFilm;
+	public void setIdData(Long idData) {
+		this.idData = idData;
 	}
 
-	public void setNote(Note note) {
-		this.note = note;
+	public String getDirectorName() {
+		return directorName;
 	}
 
-	public String getTconst() {
-		return tconst;
+	public void setDirectorName(String directorName) {
+		this.directorName = directorName;
 	}
 
-	public void setTconst(String tconst) {
-		this.tconst = tconst;
+	public String getNumCriticForReviews() {
+		return numCriticForReviews;
 	}
 
-	public String getTitleType() {
-		return titleType;
+	public void setNumCriticForReviews(String numCriticForReviews) {
+		this.numCriticForReviews = numCriticForReviews;
 	}
 
-	public void setTitleType(String titleType) {
-		this.titleType = titleType;
+	public String getPlotKeywords() {
+		return plotKeywords;
 	}
 
-	public String getPrimaryTitle() {
-		return primaryTitle;
+	public void setPlotKeywords(String plotKeywords) {
+		this.plotKeywords = plotKeywords;
 	}
 
-	public void setPrimaryTitle(String primaryTitle) {
-		this.primaryTitle = primaryTitle;
+	public String getNumUserForReviews() {
+		return numUserForReviews;
 	}
 
-	public String getOriginalTitle() {
-		return originalTitle;
+	public void setNumUserForReviews(String numUserForReviews) {
+		this.numUserForReviews = numUserForReviews;
 	}
 
-	public void setOriginalTitle(String originalTitle) {
-		this.originalTitle = originalTitle;
+	public Float getImdbScore() {
+		return imdbScore;
 	}
 
-	public int getIsAdult() {
-		return isAdult;
+	public void setImdbScore(Float imdbScore) {
+		this.imdbScore = imdbScore;
 	}
 
-	public void setIsAdult(int isAdult) {
-		this.isAdult = isAdult;
+	public String getTitleYear() {
+		return titleYear;
 	}
 
-	public String getStartYear() {
-		return startYear;
+	public void setTitleYear(String titleYear) {
+		this.titleYear = titleYear;
 	}
 
-	public void setStartYear(String startYear) {
-		this.startYear = startYear;
+	public String getBudget() {
+		return budget;
 	}
 
-	public String getEndYear() {
-		return endYear;
+	public void setBudget(String budget) {
+		this.budget = budget;
 	}
 
-	public void setEndYear(String endYear) {
-		this.endYear = endYear;
+	public String getContentRating() {
+		return contentRating;
 	}
 
-	public String getRuntimeMinutes() {
-		return runtimeMinutes;
+	public void setContentRating(String contentRating) {
+		this.contentRating = contentRating;
 	}
 
-	public void setRuntimeMinutes(String runtimeMinutes) {
-		this.runtimeMinutes = runtimeMinutes;
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+
+	public String getMovieImdbLink() {
+		return movieImdbLink;
+	}
+
+	public void setMovieImdbLink(String movieImdbLink) {
+		this.movieImdbLink = movieImdbLink;
+	}
+
+	public String getDuration() {
+		return duration;
+	}
+
+	public void setDuration(String duration) {
+		this.duration = duration;
+	}
+
+	public String getActor3Name() {
+		return actor3Name;
+	}
+
+	public void setActor3Name(String actor3Name) {
+		this.actor3Name = actor3Name;
+	}
+
+	public String getNumVotedUsers() {
+		return numVotedUsers;
+	}
+
+	public void setNumVotedUsers(String numVotedUsers) {
+		this.numVotedUsers = numVotedUsers;
+	}
+
+	public String getMovieTitle() {
+		return movieTitle;
+	}
+
+	public void setMovieTitle(String movieTitle) {
+		this.movieTitle = movieTitle;
+	}
+
+	public String getActor1Name() {
+		return actor1Name;
+	}
+
+	public void setActor1Name(String actor1Name) {
+		this.actor1Name = actor1Name;
 	}
 
 	public String getGenres() {
@@ -138,6 +222,21 @@ public class Film implements Serializable {
 	public void setGenres(String genres) {
 		this.genres = genres;
 	}
-	
+
+	public String getGross() {
+		return gross;
+	}
+
+	public void setGross(String gross) {
+		this.gross = gross;
+	}
+
+	public String getActor2Name() {
+		return actor2Name;
+	}
+
+	public void setActor2Name(String actor2Name) {
+		this.actor2Name = actor2Name;
+	}
 
 }

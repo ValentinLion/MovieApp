@@ -91,7 +91,7 @@
 								<div class="movie">
 									<figure class="movie-poster"><img src="dummy/thumb-3.jpg" alt="#"></figure>
 									<div class="movie-title"> 
-										<a href="/film?id=${film.idFilm}"><c:out value="${film.primaryTitle}" /></a>
+										<a href="/film?id=${film.idData}"><c:out value="${film.movieTitle}" /></a>
 									</div>
 									<p>Sed ut perspiciatis unde omnis iste natus error voluptatem doloremque.</p>
 								</div>
