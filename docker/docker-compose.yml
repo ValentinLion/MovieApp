@@ -1,5 +1,4 @@
 movie-app:
-  network_mode: host
   image: tomcat
   ports:
     - "80:8080"
