@@ -77,7 +77,7 @@
 						<div class="content">
 							<div class="row">
 								<div class="col-md-6">
-									<figure class="movie-poster"><img src="dummy/single-image.jpg" alt="#"></figure>
+									<figure class="movie-poster"><img id="imgPoster" src="dummy/single-image.jpg" alt="#"></figure>
 								</div>
 								<div class="col-md-6">
 									<h2 class="movie-title"><c:out value="${film.movieTitle}" /></h2>
@@ -178,17 +178,14 @@
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 		    if (this.readyState == 4 && this.status == 200) {
-		        var response = xhttp.responseText;
-		        
-		        obj = JSON.parse(response);
-		        
+		        var response = xhttp.responseText;		        
+		        obj = JSON.parse(response);		        
+		        document.getElementById("imgPoster").src=obj.Poster;
 		    }
 		};
 		xhttp.open("GET", "http://www.omdbapi.com/?t=${film.movieTitle}&apikey=7e3e8f28", true);
 		
 		xhttp.send();
-	
-		
 		
 	</script>
 
