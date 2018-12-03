@@ -37,12 +37,12 @@ public class ListeFilmsController {
 
 	
 	@GetMapping("/film")
-	public String voirDetailFilm(@RequestParam(name="id", required=true, defaultValue="1") String idFilm,ModelAndView model) {
+	public String voirDetailFilm(@RequestParam(name="id", required=true, defaultValue="1") String idFilm,Map<String, Object> model) {
 		
 		Optional<Film> film = filmRepository.findById(Long.parseLong(idFilm));
 		
 		if(film.isPresent()) {
-		        model.addObject("film",film.get());        
+		        model.put("film",film.get());        
 		}
 		else {
 			

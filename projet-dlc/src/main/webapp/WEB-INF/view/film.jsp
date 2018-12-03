@@ -4,6 +4,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page isELIgnored="false"%>
 
 <html lang="en">
 	<head>
@@ -81,7 +82,7 @@
 									<figure class="movie-poster"><img src="dummy/single-image.jpg" alt="#"></figure>
 								</div>
 								<div class="col-md-6">
-									<h2 class="movie-title">${film.primaryTitle}</h2>
+									<h2 class="movie-title"><c:out value="${film.primaryTitle}" /></h2>
 									
 									<ul class="movie-meta">
 										<li><strong>Rating:</strong> 
@@ -89,7 +90,7 @@
 										</li>
 										<li><strong>Length:</strong>${film.runtimeMinutes}</li>
 										<li><strong>Premiere:</strong>${film.startYear}</li>
-										<li><strong>Category:</strong>${film.genres}</li>
+										<li><strong>Category:</strong><c:out value="${film.genres}" /></li>
 									</ul>
 
 									<ul class="starring">
