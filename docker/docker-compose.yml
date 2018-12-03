@@ -1,4 +1,5 @@
 movie-app:
+  network_mode: host
   image: tomcat
   ports:
     - "80:8080"
@@ -6,4 +7,4 @@ movie-app:
      - ./movie-app.war:/usr/local/tomcat/webapps/movie.war
      - ./movie-app:/usr/local/tomcat/webapps/ROOT
      
-  network_mode: "host"
+ 
