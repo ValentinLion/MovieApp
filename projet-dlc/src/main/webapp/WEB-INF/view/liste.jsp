@@ -34,6 +34,10 @@
 
 	<body>
 		
+		<script>
+			var tableauIdPoster = [];
+			var tableauNomFilm = [];
+		</script>
 
 		<div id="site-content">
 			<header class="site-header">
@@ -50,7 +54,7 @@
 						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
 						<ul class="menu">
 							<li class="menu-item"><a href="index.html">Accueil</a></li>
-							<li class="menu-item current-menu-item"><a href="liste.html">Trouver un film</a></li>
+							<li class="menu-item current-menu-item"><a href="/movie/liste">Trouver un film</a></li>
 						</ul> <!-- .menu -->
 
 						<form action="#" class="search-form">
@@ -67,32 +71,23 @@
 					<div class="page">
 						<div class="breadcrumbs">
 							<a href="index.html">Home</a>
-							<span>Movie Review</span>
-						</div>
-
-						<div class="filters">
-							<select name="#" id="#" placeholder="Choose Category">
-								<option value="#">Action</option>
-								<option value="#">Drama</option>
-								<option value="#">Fantasy</option>
-								<option value="#">Horror</option>
-								<option value="#">Adventure</option>
-							</select>
-							<select name="#" id="#">
-								<option value="#">2012</option>
-								<option value="#">2013</option>
-								<option value="#">2014</option>
-							</select>
+							<span>Liste des films</span>
 						</div>
 						
 						<div class="movie">
 							<c:forEach items="${listeFilms}" var="film">
 
 								<div class="movie">
-									<figure class="movie-poster"><img src="dummy/thumb-3.jpg" alt="#"></figure>
+									<figure class="movie-poster"><img id="poster${film.idData}" src="dummy/not-available.jpg" alt="#"></figure>
 									<div class="movie-title"> 
-										<a href="/film?id=${film.idData}"><c:out value="${film.movieTitle}" /></a>
+										<a href="/movie/film?id=${film.idData}"><c:out value="${film.movieTitle}" /></a>
 									</div>
+									
+									<script>
+										tableauIdPoster.push("poster${film.idData}");
+										tableauNomFilm.push("${film.movieTitle}");
+									</script>
+									
 									<p>Sed ut perspiciatis unde omnis iste natus error voluptatem doloremque.</p>
 								</div>
 							
@@ -101,13 +96,9 @@
 						</div> <!-- .movie-list -->
 
 						<div class="pagination">
-							<a href="#" class="page-number prev"><i class="fa fa-angle-left"></i></a>
-							<span class="page-number current">1</span>
-							<a href="#" class="page-number">2</a>
-							<a href="#" class="page-number">3</a>
-							<a href="#" class="page-number">4</a>
-							<a href="#" class="page-number">5</a>
-							<a href="#" class="page-number next"><i class="fa fa-angle-right"></i></a>
+							<a href="/movie/liste?page=${page-1}" class="page-number prev"><i class="fa fa-angle-left"></i></a>
+							<span class="page-number current">${page}</span>
+							<a href="/movie/liste?page=${page+1}" class="page-number next"><i class="fa fa-angle-right"></i></a>
 						</div>
 					</div>
 				</div> <!-- .container -->
@@ -175,18 +166,35 @@
 						</div>
 					</div> <!-- .row -->
 
-					<div class="colophon">Copyright 2014 Company name, Designed by Themezy. All rights reserved</div>
+					<div class="colophon">Copyright 2018 Pug's Movies, Designed by Themezy. All rights reserved</div>
 				</div> <!-- .container -->
 
 			</footer>
 		</div>
 		<!-- Default snippet for navigation -->
 		
-
-
 		<script src="js/jquery-1.11.1.min.js"></script>
 		<script src="js/plugins.js"></script>
 		<script src="js/app.js"></script>
+		
+		<script>
+						tableauIdPoster.forEach(function(item, index, array) {
+						
+							var xhttp = new XMLHttpRequest();
+										xhttp.onreadystatechange = function() {
+										    if (this.readyState == 4 && this.status == 200) {
+										        var response = xhttp.responseText;		        
+										        obj = JSON.parse(response);		  										              
+										        document.getElementById("poster"+tableauIdPoster[index]).src=obj.Poster;
+										    }
+										};
+										xhttp.open("GET", "http://www.omdbapi.com/?t="+tableauNomFilm[index]+"&apikey=7e3e8f28", true);
+										
+										xhttp.send();
+						
+						});						
+										
+		</script>
 		
 	</body>
 

@@ -43,8 +43,8 @@
 					<a href="index.html" id="branding">
 						<img src="images/logo.png" alt="" class="logo">
 						<div class="logo-copy">
-							<h1 class="site-title">Company Name</h1>
-							<small class="site-description">Tagline goes here</small>
+							<h1 class="site-title">Pug's Movies</h1>
+							<small class="site-description"></small>
 						</div>
 					</a> <!-- #branding -->
 
@@ -52,13 +52,13 @@
 						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
 						<ul class="menu">
 							<li class="menu-item"><a href="index.html">Home</a></li>
-							<li class="menu-item current-menu-item"><a href="review.html">Fiche du film</a></li>
+							<li class="menu-item current-menu-item"><a href="/movie/liste">Trouver un film</a></li>
 						</ul> <!-- .menu -->
 
 						<form action="#" class="search-form">
 							<input type="text" placeholder="Search...">
 							<button><i class="fa fa-search"></i></button>
-						</form>n><i class="fa fa-search"></i></button>
+							<i class="fa fa-search"></i></button>
 						</form>
 					</div> <!-- .main-navigation -->
 
@@ -69,22 +69,21 @@
 				<div class="container">
 					<div class="page">
 						<div class="breadcrumbs">
-							<a href="index.html">Home</a>
-							<a href="review.html">Movie Review</a>
+							<a href="/movie/liste">Liste des films</a>
+							<a href="">Fiche du film</a>
 							<span>${film.movieTitle}</span>
 						</div>
 
 						<div class="content">
 							<div class="row">
 								<div class="col-md-6">
-									<figure class="movie-poster"><img id="imgPoster" src="dummy/single-image.jpg" alt="#"></figure>
+									<figure class="movie-poster"><img id="imgPoster" src="dummy/not-available.jpg" alt="#"></figure>
 								</div>
 								<div class="col-md-6">
 									<h2 class="movie-title"><c:out value="${film.movieTitle}" /></h2>
 									
 									<ul class="movie-meta">
-										<li><strong>Note Imdb : </strong> 
-											<div class="star-rating" title="Rated ${film.imdbScore} out of 10"><span style="width:80%"><strong class="rating">imdbScore</strong> out of 10</span></div>
+										<li><strong>Note Imdb : </strong> ${film.imdbScore} / 10
 										</li>
 										<li><strong>Durée :</strong> ${film.duration} minutes</li>
 										<li><strong>Date de sortie :</strong> ${film.titleYear}</li>
@@ -165,7 +164,7 @@
 						</div>
 					</div> <!-- .row -->
 
-					<div class="colophon">Copyright 2014 Company name, Designed by Themezy. All rights reserved</div>
+					<div class="colophon">Copyright 2018 Pug's Movies, Designed by Themezy. All rights reserved</div>
 				</div> <!-- .container -->
 
 			</footer>
