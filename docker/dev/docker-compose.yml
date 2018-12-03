@@ -9,3 +9,6 @@ services:
       - "8080"
     volumes:
        - ./movie.war:/usr/local/tomcat/webapps/movie_dev.war
+networks:
+    legacy:
+      external: true
