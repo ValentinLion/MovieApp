@@ -35,10 +35,8 @@
 
 	</head>
 
-
 	<body>
 		
-
 		<div id="site-content">
 			<header class="site-header">
 				<div class="container">
@@ -85,18 +83,18 @@
 									<h2 class="movie-title"><c:out value="${film.movieTitle}" /></h2>
 									
 									<ul class="movie-meta">
-										<li><strong>Rating:</strong> 
-											<div class="star-rating" title="Rated 4.00 out of 5"><span style="width:80%"><strong class="rating">4.00</strong> out of 5</span></div>
+										<li><strong>Note Imdb : </strong> 
+											<div class="star-rating" title="Rated ${film.imdbScore} out of 10"><span style="width:80%"><strong class="rating">imdbScore</strong> out of 10</span></div>
 										</li>
-										<li><strong>Length:</strong> ${film.duration} minutes</li>
-										<li><strong>Premiere:</strong>${film.titleYear}</li>
-										<li><strong>Category:</strong><c:out value="${film.genres}" /></li>
+										<li><strong>Durée :</strong> ${film.duration} minutes</li>
+										<li><strong>Date de sortie :</strong> ${film.titleYear}</li>
+										<li><strong>Catégorie :</strong> ${film.genres}</li>
+										<li><a href="${film.movieImdbLink}">Lien vers la page imdb</a></li>
 									</ul>
 
 									<ul class="starring">
-										<li><strong>Directors:</strong> </li>
-										<li><strong>Writers:</strong> </li>
-										<li><strong>Stars:</strong> </li>
+										<li><strong>Réalisateur :</strong> </li>
+										<li><strong>Acteurs principaux :</strong> </li>
 									</ul>
 								</div>
 							</div> <!-- .row -->
@@ -173,7 +171,25 @@
 			</footer>
 		</div>
 		<!-- Default snippet for navigation -->
-		
 	</body>
+
+	<script>
+	
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+		    if (this.readyState == 4 && this.status == 200) {
+		        var response = xhttp.responseText;
+		        
+		        obj = JSON.parse(response);
+		        
+		    }
+		};
+		xhttp.open("GET", "http://www.omdbapi.com/?t=${film.movieTitle}&apikey=7e3e8f28", true);
+		
+		xhttp.send();
+	
+		
+		
+	</script>
 
 </html>
