@@ -1,6 +1,10 @@
 movie-app:
-  image: tomcat
+  image: openjdk:8-jdk-alpine
   ports:
     - "80:8080"
   volumes:
-     - ./movie-app.war:/usr/local/tomcat/webapps/movie-app.war
+     - /tmp
+     - ./movie-app.jar:movie.jar
+  
+  command: java -jar movie.jar
+  
