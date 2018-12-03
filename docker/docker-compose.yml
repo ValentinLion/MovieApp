@@ -3,8 +3,7 @@ movie-app:
   ports:
     - "80:8080"
   volumes:
-     - /tmp
-     - ./movie-app.jar:movie.jar
+     - movie-app.jar:movie.jar
   
   command: java -jar movie.jar
   
