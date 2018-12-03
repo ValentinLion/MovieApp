@@ -3,6 +3,6 @@ services:
   movie_dev:
     image: tomcat
     ports:
-      - "8085:8080"
+      - "8081:8080"
     volumes:
        - ./movie.war:/usr/local/tomcat/webapps/movie_dev.war
