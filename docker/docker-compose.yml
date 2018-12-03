@@ -7,5 +7,7 @@ services:
     volumes:
        - ./movie-app.war:/usr/local/tomcat/webapps/movie.war
        - ./movie-app:/usr/local/tomcat/webapps/ROOT
+       
+network_mode: host
      
  
