@@ -1,9 +1,8 @@
 version: '3'
 services:
-  movie-app:
+  movie:
     image: tomcat
     ports:
       - "80:8080"
     volumes:
-       - ./movie-app.war:/usr/local/tomcat/webapps/movie.war
-       - ./movie-app:/usr/local/tomcat/webapps/ROOT
+       - ./movie.war:/usr/local/tomcat/webapps/ROOT.war
