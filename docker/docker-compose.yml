@@ -1,6 +1,6 @@
 version: '3'
 services:
-  movie-app:
+  movie:
     image: tomcat
     ports:
       - "80:8080"
