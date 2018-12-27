@@ -5,8 +5,9 @@ services:
     networks:
        - legacy
     hostname: "movie_deploy_1"
-    expose:
-       - "8080"
+    ports:
+       - target: 8080
+       published: 80
     volumes:
        - ./movie.war:/usr/local/tomcat/webapps/movie.war
 networks:
