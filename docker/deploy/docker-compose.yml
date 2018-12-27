@@ -6,7 +6,7 @@ services:
        - legacy
     hostname: "movie_deploy_1"
     ports:
-       - "80:8080"
+       - "8080"
     volumes:
        - ./movie.war:/usr/local/tomcat/webapps/movie.war
 networks:
