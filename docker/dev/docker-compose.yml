@@ -6,7 +6,7 @@ services:
        - legacy
     hostname: "movie_dev_1"
     ports:
-       - "8080:8081"
+       - "8081:8080"
     volumes:
        - ./movie.war:/usr/local/tomcat/webapps/movie_dev.war
 networks:
