@@ -7,9 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
+@NamedQuery(name = "Film.findByMovieTitle", query = "SELECT p FROM Film p WHERE LOWER(p.movieTitle) LIKE CONCAT('%',LOWER(:title),'%')")
 @Table(name = "data")
 public class Film implements Serializable {
 	

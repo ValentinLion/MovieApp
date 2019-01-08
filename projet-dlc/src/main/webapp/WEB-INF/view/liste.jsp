@@ -56,11 +56,6 @@
 							<li class="menu-item"><a href="index.html">Accueil</a></li>
 							<li class="menu-item current-menu-item"><a href="/movie/liste">Trouver un film</a></li>
 						</ul> <!-- .menu -->
-
-						<form action="#" class="search-form">
-							<input type="text" placeholder="Search...">
-							<button><i class="fa fa-search"></i></button>
-						</form>
 					</div> <!-- .main-navigation -->
 
 					<div class="mobile-navigation"></div>
@@ -73,7 +68,10 @@
 							<a href="index.html">Home</a>
 							<span>Liste des films</span>
 						</div>
-						
+						<form action="/search" method="POST" class="search-form">
+							<input name="query" type="text" value="" placeholder="Rechercher un film ...">
+							<button type="submit"><i class="fa fa-search"></i></button>
+						</form>
 						<div class="movie">
 							<c:forEach items="${listeFilms}" var="film">
 
@@ -92,6 +90,10 @@
 								</div>
 							
 							</c:forEach>
+							<c:if test="${empty listeFilms}">
+								<br>
+								<p>Aucun film ne correspond à votre recherche</p>
+							</c:if>
 							
 						</div> <!-- .movie-list -->
 
