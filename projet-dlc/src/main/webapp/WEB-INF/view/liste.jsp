@@ -37,6 +37,7 @@
 		<script>
 			var tableauIdPoster = [];
 			var tableauNomFilm = [];
+			var tableauIdResume = [];
 		</script>
 
 		<div id="site-content">
@@ -72,6 +73,7 @@
 							<input name="query" type="text" value="" placeholder="Rechercher un film ...">
 							<button type="submit"><i class="fa fa-search"></i></button>
 						</form>
+						</br>
 						<div class="movie">
 							<c:forEach items="${listeFilms}" var="film">
 
@@ -84,9 +86,10 @@
 									<script>
 										tableauIdPoster.push("poster${film.idData}");
 										tableauNomFilm.push("${film.movieTitle}");
+										tableauIdResume.push("resume${film.idData}");
 									</script>
 									
-									<p>Sed ut perspiciatis unde omnis iste natus error voluptatem doloremque.</p>
+									<p id="resume${film.idData}"></p>
 								</div>
 							
 							</c:forEach>
@@ -186,10 +189,13 @@
 										xhttp.onreadystatechange = function() {
 										    if (this.readyState == 4 && this.status == 200) {
 										        var response = xhttp.responseText;		        
-										        obj = JSON.parse(response);		  										              
-										        document.getElementById("poster"+tableauIdPoster[index]).src=obj.Poster;
+										        obj = JSON.parse(response);
+										        document.getElementById(tableauIdPoster[index]).src=obj.Poster;
+										        document.getElementById(tableauIdResume[index]).innerHTML=obj.Plot;
+										        
 										    }
 										};
+																				
 										xhttp.open("GET", "http://www.omdbapi.com/?t="+tableauNomFilm[index]+"&apikey=7e3e8f28", true);
 										
 										xhttp.send();
