@@ -43,7 +43,7 @@
 					<a href="index.html" id="branding">
 						<img src="images/logo.png" alt="" class="logo">
 						<div class="logo-copy">
-							<h1 class="site-title">PUG's Movies</h1>
+							<h1 class="site-title">Pug's Moviess</h1>
 							<small class="site-description"></small>
 						</div>
 					</a> <!-- #branding -->
