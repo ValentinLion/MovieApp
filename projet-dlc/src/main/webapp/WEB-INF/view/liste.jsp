@@ -55,7 +55,7 @@
 						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
 						<ul class="menu">
 							<li class="menu-item"><a href="index.html">Accueil</a></li>
-							<li class="menu-item current-menu-item"><a href="/movie/liste">Trouver un film</a></li>
+							<li class="menu-item current-menu-item"><a href="./liste">Trouver un film</a></li>
 						</ul> <!-- .menu -->
 					</div> <!-- .main-navigation -->
 
@@ -69,7 +69,7 @@
 							<a href="index.html">Home</a>
 							<span>Liste des films</span>
 						</div>
-						<form action="/search" method="POST" class="search-form">
+						<form action="./search" method="POST" class="search-form">
 							<input name="query" type="text" value="" placeholder="Rechercher un film ...">
 							<button type="submit"><i class="fa fa-search"></i></button>
 						</form>
@@ -80,7 +80,7 @@
 								<div class="movie">
 									<figure class="movie-poster"><img id="poster${film.idData}" src="dummy/not-available.jpg" alt="#"></figure>
 									<div class="movie-title"> 
-										<a href="/movie/film?id=${film.idData}"><c:out value="${film.movieTitle}" /></a>
+										<a href="./film?id=${film.idData}"><c:out value="${film.movieTitle}" /></a>
 									</div>
 									
 									<script>
@@ -101,9 +101,9 @@
 						</div> <!-- .movie-list -->
 
 						<div class="pagination">
-							<a href="/movie/liste?page=${page-1}" class="page-number prev"><i class="fa fa-angle-left"></i></a>
+							<a href="./liste?page=${page-1}" class="page-number prev"><i class="fa fa-angle-left"></i></a>
 							<span class="page-number current">${page}</span>
-							<a href="/movie/liste?page=${page+1}" class="page-number next"><i class="fa fa-angle-right"></i></a>
+							<a href="./liste?page=${page+1}" class="page-number next"><i class="fa fa-angle-right"></i></a>
 						</div>
 					</div>
 				</div> <!-- .container -->
