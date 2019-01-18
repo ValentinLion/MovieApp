@@ -2,6 +2,7 @@ version: '3'
 services:
   movie_deploy:
     image: tomcat
+    restart: always
     networks:
        - legacy
     hostname: "movie_deploy_1"
