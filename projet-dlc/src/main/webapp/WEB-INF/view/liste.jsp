@@ -74,7 +74,7 @@
 							<button type="submit"><i class="fa fa-search"></i></button>
 						</form>
 						</br>
-						<div class="movie">
+						<div class="movie-list">
 							<c:forEach items="${listeFilms}" var="film">
 
 								<div class="movie">
@@ -82,13 +82,16 @@
 									<div class="movie-title"> 
 										<a href="./film?id=${film.idData}"><c:out value="${film.movieTitle}" /></a>
 									</div>
-									
 									<script>
 										tableauIdPoster.push("poster${film.idData}");
 										tableauNomFilm.push("${film.movieTitle}");
 										tableauIdResume.push("resume${film.idData}");
 									</script>
-									
+									<ul class="movie-meta">
+										<li><strong>Note Imdb : </strong> ${film.imdbScore} / 10</li>
+										<li><strong>Durée :</strong> ${film.duration} minutes</li>
+										<li><strong>Date de sortie :</strong> ${film.titleYear}</li>
+									</ul>
 									<p id="resume${film.idData}"></p>
 								</div>
 							
