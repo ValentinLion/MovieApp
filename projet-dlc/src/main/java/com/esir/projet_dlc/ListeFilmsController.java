@@ -20,7 +20,6 @@ public class ListeFilmsController {
 	private FilmRepository filmRepository;
 
 
-
 	@PostMapping("/search")
 	public String rechercheFilm(Map<String, Object> model,@RequestParam String query) {
 

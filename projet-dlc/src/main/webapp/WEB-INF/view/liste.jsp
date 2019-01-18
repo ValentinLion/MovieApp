@@ -106,6 +106,14 @@
 						<div class="pagination">
 							<a href="./liste?page=${page-1}" class="page-number prev"><i class="fa fa-angle-left"></i></a>
 							<span class="page-number current">${page}</span>
+							<a href="./liste?page=${page+1}" class="page-number"><span class="page-number current">${page+1}</span></a>
+							<a href="./liste?page=${page+2}" class="page-number"><span class="page-number current">${page+2}</span></a>
+							<a href="./liste?page=${page+3}" class="page-number"><span class="page-number current">${page+3}</span></a>
+							<a href="./liste?page=${page+4}" class="page-number"><span class="page-number current">${page+4}</span></a>
+							<a href="./liste?page=${page+5}" class="page-number"><span class="page-number current">${page+5}</span></a>
+							<a href="./liste?page=${page+6}" class="page-number"><span class="page-number current">${page+6}</span></a>
+							<a href="./liste?page=${page+7}" class="page-number"><span class="page-number current">${page+7}</span></a>
+							<a href="./liste?page=${page+8}" class="page-number"><span class="page-number current">${page+8}</span></a>
 							<a href="./liste?page=${page+1}" class="page-number next"><i class="fa fa-angle-right"></i></a>
 						</div>
 					</div>
