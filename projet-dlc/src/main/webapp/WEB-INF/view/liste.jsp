@@ -37,6 +37,7 @@
 		<script>
 			var tableauIdPoster = [];
 			var tableauNomFilm = [];
+			var tableauIdResume = [];
 		</script>
 
 		<div id="site-content">
@@ -54,13 +55,8 @@
 						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
 						<ul class="menu">
 							<li class="menu-item"><a href="index.html">Accueil</a></li>
-							<li class="menu-item current-menu-item"><a href="/movie/liste">Trouver un film</a></li>
+							<li class="menu-item current-menu-item"><a href="./liste">Trouver un film</a></li>
 						</ul> <!-- .menu -->
-
-						<form action="#" class="search-form">
-							<input type="text" placeholder="Search...">
-							<button><i class="fa fa-search"></i></button>
-						</form>
 					</div> <!-- .main-navigation -->
 
 					<div class="mobile-navigation"></div>
@@ -73,32 +69,44 @@
 							<a href="index.html">Home</a>
 							<span>Liste des films</span>
 						</div>
-						
-						<div class="movie">
+						<form action="./search" method="POST" class="search-form">
+							<input name="query" type="text" value="" placeholder="Rechercher un film ...">
+							<button type="submit"><i class="fa fa-search"></i></button>
+						</form>
+						</br>
+						<div class="movie-list">
 							<c:forEach items="${listeFilms}" var="film">
 
 								<div class="movie">
 									<figure class="movie-poster"><img id="poster${film.idData}" src="dummy/not-available.jpg" alt="#"></figure>
 									<div class="movie-title"> 
-										<a href="/movie/film?id=${film.idData}"><c:out value="${film.movieTitle}" /></a>
+										<a href="./film?id=${film.idData}"><c:out value="${film.movieTitle}" /></a>
 									</div>
-									
 									<script>
 										tableauIdPoster.push("poster${film.idData}");
 										tableauNomFilm.push("${film.movieTitle}");
+										tableauIdResume.push("resume${film.idData}");
 									</script>
-									
-									<p>Sed ut perspiciatis unde omnis iste natus error voluptatem doloremque.</p>
+									<ul class="movie-meta">
+										<li><strong>Note Imdb : </strong> ${film.imdbScore} / 10</li>
+										<li><strong>Durée :</strong> ${film.duration} minutes</li>
+										<li><strong>Date de sortie :</strong> ${film.titleYear}</li>
+									</ul>
+									<p id="resume${film.idData}"></p>
 								</div>
 							
 							</c:forEach>
+							<c:if test="${empty listeFilms}">
+								<br>
+								<p>Aucun film ne correspond à votre recherche</p>
+							</c:if>
 							
 						</div> <!-- .movie-list -->
 
 						<div class="pagination">
-							<a href="/movie/liste?page=${page-1}" class="page-number prev"><i class="fa fa-angle-left"></i></a>
+							<a href="./liste?page=${page-1}" class="page-number prev"><i class="fa fa-angle-left"></i></a>
 							<span class="page-number current">${page}</span>
-							<a href="/movie/liste?page=${page+1}" class="page-number next"><i class="fa fa-angle-right"></i></a>
+							<a href="./liste?page=${page+1}" class="page-number next"><i class="fa fa-angle-right"></i></a>
 						</div>
 					</div>
 				</div> <!-- .container -->
@@ -184,10 +192,13 @@
 										xhttp.onreadystatechange = function() {
 										    if (this.readyState == 4 && this.status == 200) {
 										        var response = xhttp.responseText;		        
-										        obj = JSON.parse(response);		  										              
-										        document.getElementById("poster"+tableauIdPoster[index]).src=obj.Poster;
+										        obj = JSON.parse(response);
+										        document.getElementById(tableauIdPoster[index]).src=obj.Poster;
+										        document.getElementById(tableauIdResume[index]).innerHTML=obj.Plot;
+										        
 										    }
 										};
+																				
 										xhttp.open("GET", "http://www.omdbapi.com/?t="+tableauNomFilm[index]+"&apikey=7e3e8f28", true);
 										
 										xhttp.send();
