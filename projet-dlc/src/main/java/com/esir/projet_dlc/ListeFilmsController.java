@@ -9,7 +9,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -30,10 +29,10 @@ public class ListeFilmsController {
 
 		Film film = new Film();                         
 		film.setMovieTitle(query);
-		listeFilms = filmRepository.findByMovieTitle(query);
+		listeFilms = filmRepository.findByMovieTitle(query).subList(0, 50);
 
 		model.put("listeFilms", listeFilms);
-
+		
 		return "liste";
 	}
 
@@ -44,7 +43,6 @@ public class ListeFilmsController {
 
 		List<Film> listeFilms = filmRepository.findAll(new PageRequest(page-1, 10)).getContent();	
 
-
 		model.put("listeFilms", listeFilms);
 		model.put("page", page);
 
@@ -53,8 +51,16 @@ public class ListeFilmsController {
 	}
 
 	@GetMapping("/film")
-	public String voirDetailFilm(@RequestParam(name="id", required=true) String idFilm,Map<String, Object> model) {
+	public String voirDetailFilm(@RequestParam(name="id", required=true) String idFilm,Map<String, Object> model) throws Exception {
 
+		try {
+			Integer.parseInt(idFilm);
+		}
+		catch(Exception e) {
+			//L'id n'est pas un nombre
+			throw new NumberFormatException("L'id du film n'est pas un nombre");
+		}
+		
 		Optional<Film> film = filmRepository.findById(Long.parseLong(idFilm));
 
 		if(film.isPresent()) {
