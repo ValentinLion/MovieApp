@@ -28,8 +28,13 @@ public class ListeFilmsController {
 
 		Film film = new Film();                         
 		film.setMovieTitle(query);
-		listeFilms = filmRepository.findByMovieTitle(query).subList(0, 50);
+		
+		listeFilms = filmRepository.findByMovieTitle(query);
 
+		if(listeFilms.size() > 50) {
+			listeFilms.subList(0, 50);
+		}
+		
 		model.put("listeFilms", listeFilms);
 		
 		return "liste";
