@@ -1,5 +1,6 @@
 package com.esir.projet_dlc;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -19,22 +20,29 @@ public class ListeFilmsController {
 	@Autowired
 	private FilmRepository filmRepository;
 
+	@GetMapping("/search")
+	public String rechercheFilm(Map<String, Object> model) {
+		List<Film> listeFilms = new ArrayList<Film>();
+		model.put("listeFilms", listeFilms);
+		return "liste";
+	}
 
 	@PostMapping("/search")
-	public String rechercheFilm(Map<String, Object> model,@RequestParam String query) {
-
-		List<Film> listeFilms;
-
-
-		Film film = new Film();                         
-		film.setMovieTitle(query);
+	public String rechercheFilm(Map<String, Object> model,@RequestParam(name="query", required=false, defaultValue="") String query) {
 		
-		listeFilms = filmRepository.findByMovieTitle(query);
+		List<Film> listeFilms = new ArrayList<Film>();
 
-		if(listeFilms.size() > 50) {
-			listeFilms.subList(0, 50);
+		if(!query.equals("")) {
+
+			Film film = new Film();                         
+			film.setMovieTitle(query);
+			
+			listeFilms = filmRepository.findByMovieTitle(query);
+	
+			if(listeFilms.size() > 50) {
+				listeFilms = listeFilms.subList(0, 50);
+			}
 		}
-		
 		model.put("listeFilms", listeFilms);
 		
 		return "liste";

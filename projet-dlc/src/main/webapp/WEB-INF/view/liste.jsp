@@ -43,7 +43,7 @@
 		<div id="site-content">
 			<header class="site-header">
 				<div class="container">
-					<a href="index.html" id="branding">
+					<a href="./liste" id="branding">
 						<img src="images/logo.png" alt="" class="logo">
 						<div class="logo-copy">
 							<h1 class="site-title">Pug's Movies</h1>
@@ -66,7 +66,7 @@
 				<div class="container">
 					<div class="page">
 						<div class="breadcrumbs">
-							<a href="index.html">Home</a>
+							<a href="./liste">Home</a>
 							<span>Liste des films</span>
 						</div>
 						<form action="./search" method="POST" class="search-form">
@@ -78,7 +78,7 @@
 							<c:forEach items="${listeFilms}" var="film">
 
 								<div class="movie">
-									<figure class="movie-poster"><img id="poster${film.idData}" src="dummy/not-available.jpg" alt="#"></figure>
+									<figure class="movie-poster"><a href="./film?id=${film.idData}"><img id="poster${film.idData}" src="dummy/not-available.jpg" alt="#"></a></figure>
 									<div class="movie-title"> 
 										<a href="./film?id=${film.idData}"><c:out value="${film.movieTitle}" /></a>
 									</div>
