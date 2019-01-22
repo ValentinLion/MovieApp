@@ -7,11 +7,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@NamedQuery(name = "Film.findByMovieTitle", query = "SELECT p FROM Film p WHERE LOWER(p.movieTitle) LIKE CONCAT('%',LOWER(:title),'%')")
+@NamedQueries({
+@NamedQuery(name = "Film.findByMovieTitle", query = "SELECT p FROM Film p WHERE LOWER(p.movieTitle) LIKE CONCAT('%',LOWER(:title),'%')"),
+@NamedQuery(name = "Film.findByActor", query = "SELECT p FROM Film p WHERE LOWER(p.actor1Name) LIKE CONCAT('%',LOWER(:name),'%') OR LOWER(p.actor3Name) LIKE CONCAT('%',LOWER(:name),'%') OR LOWER(p.actor2Name) LIKE CONCAT('%',LOWER(:name),'%')"),
+@NamedQuery(name = "Film.findByDirector", query = "SELECT p FROM Film p WHERE LOWER(p.directorName) LIKE CONCAT('%',LOWER(:name),'%')")
+
+})
 @Table(name = "data")
 public class Film implements Serializable {
 	

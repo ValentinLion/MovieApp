@@ -49,6 +49,30 @@ public class ListeFilmsController {
 	}
 
 
+	@GetMapping("/director")
+	public String voirFicheRealisateur(Map<String, Object> model, @RequestParam(name="name", required=false, defaultValue="") String name) {
+
+		List<Film> listeFilmsActeur = filmRepository.findByDirector(name);	
+
+		model.put("name", name);
+		model.put("listeFilmsActeur", listeFilmsActeur);
+
+		return "director";
+
+	}
+
+	@GetMapping("/actor")
+	public String voirFicheActeur(Map<String, Object> model, @RequestParam(name="name", required=false, defaultValue="") String name) {
+
+		List<Film> listeFilmsActeur = filmRepository.findByActor(name);	
+
+		model.put("name", name);
+		model.put("listeFilmsActeur", listeFilmsActeur);
+
+		return "actor";
+
+	}
+	
 	@GetMapping("/liste")
 	public String voirListeFilms(Map<String, Object> model, @RequestParam(name="page", required=false, defaultValue="1") int page) {
 

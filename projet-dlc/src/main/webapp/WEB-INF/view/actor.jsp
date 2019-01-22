@@ -12,7 +12,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
 		
-		<title>Fiche de film</title>
+		<title>Fiche acteur</title>
 
 		<!-- Loading third party fonts -->
 		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
@@ -64,8 +64,8 @@
 					<div class="page">
 						<div class="breadcrumbs">
 							<a href="./liste">Liste des films</a>
-							<a href="">Fiche du film</a>
-							<span>${film.movieTitle}</span>
+							<a href="">Fiche acteur</a>
+							<span>${name}</span>
 						</div>
 
 						<div class="content">
@@ -74,21 +74,16 @@
 									<figure class="movie-poster"><img id="imgPoster" src="dummy/not-available.jpg" alt="#"></figure>
 								</div>
 								<div class="col-md-6">
-									<h2 class="movie-title"><c:out value="${film.movieTitle}" /></h2>
+									<h2 class="movie-title"><c:out value="${name}" /></h2>
 									
-									<ul class="movie-meta">
-										<li><strong>Note Imdb : </strong> ${film.imdbScore} / 10
-										</li>
-										<li><strong>Durée :</strong> ${film.duration} minutes</li>
-										<li><strong>Date de sortie :</strong> ${film.titleYear}</li>
-										<li><strong>Catégorie :</strong> ${film.genres}</li>
-										<li><a href="${film.movieImdbLink}">Lien vers la page imdb</a></li>
+									<strong>Liste des films de l'acteur : </strong>
+									<br/><br/>
+									<ul style="height:200px;overflow:hidden; overflow-y:scroll;" class="movie-meta">
+										<c:forEach items="${listeFilmsActeur}" var="film">
+											<li><a href="/film?id=${film.idData}">${film.movieTitle}</a></li>
+										</c:forEach>
 									</ul>
 
-									<ul class="starring">
-										<li><strong>Réalisateur :</strong> <a href="./director?name=${film.directorName}">${film.directorName}</a> </li>
-										<li><strong>Acteurs principaux : </strong> <a href="./actor?name=${film.actor1Name}">${film.actor1Name}</a>, <a href="./actor?name=${film.actor2Name}">${film.actor2Name}</a>, <a href="./actor?name=${film.actor3Name}">${film.actor3Name}</a> </li>
-									</ul>
 								</div>
 							</div> <!-- .row -->
 							
@@ -173,10 +168,10 @@
 		    if (this.readyState == 4 && this.status == 200) {
 		        var response = xhttp.responseText;		        
 		        obj = JSON.parse(response);		        
-		        document.getElementById("imgPoster").src=obj.Poster;
+		        document.getElementById("imgPoster").src="http://image.tmdb.org/t/p/w342//"+obj.results[0].profile_path;
 		    }
 		};
-		xhttp.open("GET", "http://www.omdbapi.com/?t=${film.movieTitle}&apikey=7e3e8f28", true);
+		xhttp.open("GET", "https://api.themoviedb.org/3/search/person?api_key=e7796847c8b89942497c94d7e26bbe4a&language=en-US&query=${name}", true);
 		
 		xhttp.send();
 		
