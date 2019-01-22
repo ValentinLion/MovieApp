@@ -86,8 +86,8 @@
 									</ul>
 
 									<ul class="starring">
-										<li><strong>Réalisateur :</strong> </li>
-										<li><strong>Acteurs principaux :</strong> </li>
+										<li><strong>Réalisateur :</strong> ${film.directorName} </li>
+										<li><strong>Acteurs principaux : </strong> ${film.actor1Name}, ${film.actor2Name}, ${film.actor3Name} </li>
 									</ul>
 								</div>
 							</div> <!-- .row -->
