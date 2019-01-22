@@ -52,7 +52,8 @@
 						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
 						<ul class="menu">
 							<li class="menu-item"><a href="./liste">Home</a></li>
-							<li class="menu-item current-menu-item"><a href="./liste">Trouver un film</a></li>
+							<li class="menu-item"><a href="./liste">Trouver un film</a></li>
+							<li class="menu-item"><a href="./addMovie">Ajouter un film</a></li>
 						</ul> <!-- .menu -->
 					</div> <!-- .main-navigation -->
 

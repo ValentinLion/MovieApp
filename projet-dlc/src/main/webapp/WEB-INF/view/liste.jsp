@@ -56,6 +56,7 @@
 						<ul class="menu">
 							<li class="menu-item"><a href="index.html">Accueil</a></li>
 							<li class="menu-item current-menu-item"><a href="./liste">Trouver un film</a></li>
+							<li class="menu-item"><a href="./addMovie">Ajouter un film</a></li>
 						</ul> <!-- .menu -->
 					</div> <!-- .main-navigation -->
 
