@@ -12,7 +12,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
 		
-		<title>Pug's Movies | Films</title>
+		<title>Pug's Movies v1 | Films</title>
 		<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
     	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
@@ -43,7 +43,7 @@
 		<div id="site-content">
 			<header class="site-header">
 				<div class="container">
-					<a href="index.html" id="branding">
+					<a href="./liste" id="branding">
 						<img src="images/logo.png" alt="" class="logo">
 						<div class="logo-copy">
 							<h1 class="site-title">Pug's Movies</h1>
@@ -56,6 +56,7 @@
 						<ul class="menu">
 							<li class="menu-item"><a href="index.html">Accueil</a></li>
 							<li class="menu-item current-menu-item"><a href="./liste">Trouver un film</a></li>
+							<li class="menu-item"><a href="./addMovie">Ajouter un film</a></li>
 						</ul> <!-- .menu -->
 					</div> <!-- .main-navigation -->
 
@@ -66,7 +67,7 @@
 				<div class="container">
 					<div class="page">
 						<div class="breadcrumbs">
-							<a href="index.html">Home</a>
+							<a href="./liste">Home</a>
 							<span>Liste des films</span>
 						</div>
 						<form action="./search" method="POST" class="search-form">
@@ -78,7 +79,7 @@
 							<c:forEach items="${listeFilms}" var="film">
 
 								<div class="movie">
-									<figure class="movie-poster"><img id="poster${film.idData}" src="dummy/not-available.jpg" alt="#"></figure>
+									<figure class="movie-poster"><a href="./film?id=${film.idData}"><img id="poster${film.idData}" src="dummy/not-available.jpg" alt="#"></a></figure>
 									<div class="movie-title"> 
 										<a href="./film?id=${film.idData}"><c:out value="${film.movieTitle}" /></a>
 									</div>
@@ -106,6 +107,14 @@
 						<div class="pagination">
 							<a href="./liste?page=${page-1}" class="page-number prev"><i class="fa fa-angle-left"></i></a>
 							<span class="page-number current">${page}</span>
+							<a href="./liste?page=${page+1}" class="page-number"><span class="page-number current">${page+1}</span></a>
+							<a href="./liste?page=${page+2}" class="page-number"><span class="page-number current">${page+2}</span></a>
+							<a href="./liste?page=${page+3}" class="page-number"><span class="page-number current">${page+3}</span></a>
+							<a href="./liste?page=${page+4}" class="page-number"><span class="page-number current">${page+4}</span></a>
+							<a href="./liste?page=${page+5}" class="page-number"><span class="page-number current">${page+5}</span></a>
+							<a href="./liste?page=${page+6}" class="page-number"><span class="page-number current">${page+6}</span></a>
+							<a href="./liste?page=${page+7}" class="page-number"><span class="page-number current">${page+7}</span></a>
+							<a href="./liste?page=${page+8}" class="page-number"><span class="page-number current">${page+8}</span></a>
 							<a href="./liste?page=${page+1}" class="page-number next"><i class="fa fa-angle-right"></i></a>
 						</div>
 					</div>

@@ -53,7 +53,7 @@
 						<ul class="menu">
 							<li class="menu-item"><a href="./liste">Home</a></li>
 							<li class="menu-item"><a href="./liste">Trouver un film</a></li>
-							<li class="menu-item"><a href="./addMovie">Ajouter un film</a></li>
+							<li class="menu-item current-menu-item"><a href="./addMovie">Ajouter un film</a></li>
 						</ul> <!-- .menu -->
 					</div> <!-- .main-navigation -->
 
@@ -65,32 +65,42 @@
 					<div class="page">
 						<div class="breadcrumbs">
 							<a href="./liste">Liste des films</a>
-							<a href="">Fiche du film</a>
+							<a href="">Ajouter un film</a>
 							<span>${film.movieTitle}</span>
 						</div>
+						<h2 class="movie-title">Ajouter un film</h2>
 
 						<div class="content">
 							<div class="row">
+							
+							<form action="/addMovie" method="POST">
+						
 								<div class="col-md-6">
-									<figure class="movie-poster"><img id="imgPoster" src="dummy/not-available.jpg" alt="#"></figure>
-								</div>
-								<div class="col-md-6">
-									<h2 class="movie-title"><c:out value="${film.movieTitle}" /></h2>
 									
-									<ul class="movie-meta">
-										<li><strong>Note Imdb : </strong> ${film.imdbScore} / 10
-										</li>
-										<li><strong>Durée :</strong> ${film.duration} minutes</li>
-										<li><strong>Date de sortie :</strong> ${film.titleYear}</li>
-										<li><strong>Catégorie :</strong> ${film.genres}</li>
-										<li><a href="${film.movieImdbLink}">Lien vers la page imdb</a></li>
-									</ul>
-
-									<ul class="starring">
-										<li><strong>Réalisateur :</strong> <a href="./director?name=${film.directorName}">${film.directorName}</a> </li>
-										<li><strong>Acteurs principaux : </strong> <a href="./actor?name=${film.actor1Name}">${film.actor1Name}</a>, <a href="./actor?name=${film.actor2Name}">${film.actor2Name}</a>, <a href="./actor?name=${film.actor3Name}">${film.actor3Name}</a> </li>
-									</ul>
+										Nom du film <br>  
+										<input type="text" name="name"><br><br>
+										Année de sortie :<br>
+										<input type="number" min="1900" max="2020" name="titleYear"><br><br> 
+										Nom du réalisateur <br>  
+										<input type="text" name="directorName"><br><br>
+										Durée : <br>
+										<input type="number" name="duration"><br><br>
+										Genres : <br>
+										<input type="text" name="genres"><br><br>
 								</div>
+								<div class="col-md-6">
+										Acteur principal 1 : <br>
+										<input type="text" name="actor1"><br><br>
+										Acteur principal 2 : <br>
+										<input type="text" name="actor2"><br><br>
+										Acteur principal 3 : <br>
+										<input type="text" name="actor3"><br><br>
+										Score : <br>
+										<input type="number" min="0" max="10"  name="imdbScore"><br><br>
+								</div>
+								<input type="submit"/>		
+								
+							</form>
 							</div> <!-- .row -->
 							
 						</div>
@@ -164,23 +174,5 @@
 
 			</footer>
 		</div>
-		<!-- Default snippet for navigation -->
 	</body>
-
-	<script>
-	
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function() {
-		    if (this.readyState == 4 && this.status == 200) {
-		        var response = xhttp.responseText;		        
-		        obj = JSON.parse(response);		        
-		        document.getElementById("imgPoster").src=obj.Poster;
-		    }
-		};
-		xhttp.open("GET", "http://www.omdbapi.com/?t=${film.movieTitle}&apikey=7e3e8f28", true);
-		
-		xhttp.send();
-		
-	</script>
-
 </html>
