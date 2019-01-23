@@ -24,7 +24,7 @@ public class AppTest extends TestCase {
 
 	@Before
 	public void setUp() throws Exception {
-    	System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/geckodriver.exe");
+    	System.setProperty("webdriver.gecko.driver", "/root/Selenium/geckodriver");
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
