@@ -3,18 +3,14 @@ package com.esir.projet_dlc;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-import java.util.concurrent.TimeUnit;
-
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
+import io.github.bonigarcia.wdm.ChromeDriverManager;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 /**
  * Unit test for simple App.
  */
@@ -24,9 +20,12 @@ public class SeleniumAppTest extends TestCase {
 
 	@Before
 	public void setUp() throws Exception {
-    	System.setProperty("webdriver.gecko.driver", "/home/geckodriver");
-		driver = new FirefoxDriver();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+	    ChromeDriverManager.chromedriver().setup();
+	    ChromeOptions chromeOptions = new ChromeOptions();
+
+	    chromeOptions.addArguments("--headless");
+	    driver = new ChromeDriver(chromeOptions);
 	}
 
 	public void testGoOnSite() throws Exception {
