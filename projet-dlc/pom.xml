@@ -17,52 +17,52 @@
 
 	<dependencies>
 		<dependency>
-		    <groupId>org.eclipse.persistence</groupId>
-		    <artifactId>eclipselink</artifactId>
-		    <version>2.5.0</version>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>eclipselink</artifactId>
+			<version>2.5.0</version>
 		</dependency>
 		<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-	
-	<dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>jstl</artifactId>
-    </dependency>
-    <!-- Need this to compile JSP -->
-    <dependency>
-      <groupId>org.apache.tomcat.embed</groupId>
-      <artifactId>tomcat-embed-jasper</artifactId>
-    </dependency>
-    
-    <dependency>
-    <groupId>tomcat</groupId>
-    <artifactId>jasper-compiler</artifactId>
-    <version>5.5.23</version>
-</dependency>
-<dependency>
-    <groupId>tomcat</groupId>
-    <artifactId>jasper-runtime</artifactId>
-    <version>5.5.23</version>
-</dependency>
-<dependency>
-    <groupId>tomcat</groupId>
-    <artifactId>jasper-compiler-jdt</artifactId>
-    <version>5.5.23</version>
-</dependency>
-    
-    <!-- Need this to compile JSP -->
-    <dependency>
-      <groupId>org.eclipse.jdt.core.compiler</groupId>
-      <artifactId>ecj</artifactId>
-      <version>4.6.1</version>
-    </dependency>
-		
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+		<!-- Need this to compile JSP -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>tomcat</groupId>
+			<artifactId>jasper-compiler</artifactId>
+			<version>5.5.23</version>
+		</dependency>
+		<dependency>
+			<groupId>tomcat</groupId>
+			<artifactId>jasper-runtime</artifactId>
+			<version>5.5.23</version>
+		</dependency>
+		<dependency>
+			<groupId>tomcat</groupId>
+			<artifactId>jasper-compiler-jdt</artifactId>
+			<version>5.5.23</version>
+		</dependency>
+
+		<!-- Need this to compile JSP -->
+		<dependency>
+			<groupId>org.eclipse.jdt.core.compiler</groupId>
+			<artifactId>ecj</artifactId>
+			<version>4.6.1</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -118,11 +118,25 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-		    <groupId>org.seleniumhq.selenium</groupId>
-		    <artifactId>selenium-java</artifactId>
-		    <version>3.141.59</version>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.141.59</version>
 		</dependency>
-		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<version>1.5.2.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.4.194</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<version>1.5.2.RELEASE</version>
+		</dependency>
 	</dependencies>
 
 	<properties>

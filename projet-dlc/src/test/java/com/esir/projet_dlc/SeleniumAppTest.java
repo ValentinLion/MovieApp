@@ -18,7 +18,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * Unit test for simple App.
  */
-public class AppTest extends TestCase {
+public class SeleniumAppTest extends TestCase {
 	private WebDriver driver;
 	private String URL = "http://148.60.11.117/movie/";
 
@@ -56,7 +56,7 @@ public class AppTest extends TestCase {
 	
 	public static TestSuite suite()
 	{
-	    return new TestSuite( AppTest.class );
+	    return new TestSuite( SeleniumAppTest.class );
 	}
 }
 
