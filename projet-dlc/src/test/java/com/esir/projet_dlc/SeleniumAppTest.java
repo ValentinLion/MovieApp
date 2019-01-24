@@ -8,9 +8,9 @@ import org.junit.Before;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import io.github.bonigarcia.wdm.ChromeDriverManager;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxBinary;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 /**
  * Unit test for simple App.
  */
@@ -21,11 +21,12 @@ public class SeleniumAppTest extends TestCase {
 	@Before
 	public void setUp() throws Exception {
 
-	    ChromeDriverManager.chromedriver().setup();
-	    ChromeOptions chromeOptions = new ChromeOptions();
-
-	    chromeOptions.addArguments("--headless");
-	    driver = new ChromeDriver(chromeOptions);
+	    FirefoxBinary firefoxBinary = new FirefoxBinary();
+	    firefoxBinary.addCommandLineOptions("--headless");
+	    System.setProperty("webdriver.gecko.driver", "/home/geckodriver");
+	    FirefoxOptions firefoxOptions = new FirefoxOptions();
+	    firefoxOptions.setBinary(firefoxBinary);
+	    driver = new FirefoxDriver(firefoxOptions);
 	}
 
 	public void testGoOnSite() throws Exception {
