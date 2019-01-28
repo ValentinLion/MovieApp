@@ -7,7 +7,7 @@ services:
        - legacy
     hostname: "movie_dev_1"
     volumes:
-       - ./movie.jar:movie.jar
+       - ./movie.jar:/movie.jar
     command: java -jar movie.jar
   
   movie_dev_2:
@@ -17,7 +17,7 @@ services:
        - legacy
     hostname: "movie_dev_2"
     volumes:
-       - ./movie.jar:movie.jar
+       - ./movie.jar:/movie.jar
     command: java -jar movie.jar
        
   movie_dev_3:
@@ -27,7 +27,7 @@ services:
        - legacy
     hostname: "movie_dev_3"
     volumes:
-       - ./movie.jar:movie.jar
+       - ./movie.jar:/movie.jar
     command: java -jar movie.jar
 networks:
     legacy:
