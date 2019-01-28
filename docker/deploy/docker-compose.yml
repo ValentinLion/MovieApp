@@ -26,24 +26,7 @@ services:
     hostname: "movie_deploy_3"
     volumes:
        - ./movie.war:/usr/local/tomcat/webapps/movie.war
-       
-  movie_deploy_4:
-    image: tomcat
-    restart: always
-    networks:
-       - legacy
-    hostname: "movie_deploy_4"
-    volumes:
-       - ./movie.war:/usr/local/tomcat/webapps/movie.war
-       
-  movie_deploy_5:
-    image: tomcat
-    restart: always
-    networks:
-       - legacy
-    hostname: "movie_deploy_5"
-    volumes:
-       - ./movie.war:/usr/local/tomcat/webapps/movie.war
+   
 networks:
     legacy:
       external: true
