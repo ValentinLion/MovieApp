@@ -18,6 +18,11 @@ public class SeleniumAppTest extends TestCase {
 	private WebDriver driver;
 	private String URL = "http://148.60.11.117/movie/";
 
+	@Test
+	public void test(){
+		
+	}
+	
 	/*@Before
 	public void setUp() throws Exception {
 
