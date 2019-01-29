@@ -12,7 +12,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
 		
-		<title>Movie Review | Single</title>
+		<title>Fiche de film</title>
 
 		<!-- Loading third party fonts -->
 		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
@@ -40,7 +40,7 @@
 		<div id="site-content">
 			<header class="site-header">
 				<div class="container">
-					<a href="index.html" id="branding">
+					<a href="./liste" id="branding">
 						<img src="images/logo.png" alt="" class="logo">
 						<div class="logo-copy">
 							<h1 class="site-title">Pug's Movies</h1>
@@ -51,8 +51,9 @@
 					<div class="main-navigation">
 						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
 						<ul class="menu">
-							<li class="menu-item"><a href="index.html">Home</a></li>
-							<li class="menu-item current-menu-item"><a href="./liste">Trouver un film</a></li>
+							<li class="menu-item"><a href="./liste">Home</a></li>
+							<li class="menu-item"><a href="./liste">Trouver un film</a></li>
+							<li class="menu-item"><a href="./addMovie">Ajouter un film</a></li>
 						</ul> <!-- .menu -->
 					</div> <!-- .main-navigation -->
 
@@ -86,8 +87,8 @@
 									</ul>
 
 									<ul class="starring">
-										<li><strong>Réalisateur :</strong> </li>
-										<li><strong>Acteurs principaux :</strong> </li>
+										<li><strong>Réalisateur :</strong> <a href="./director?name=${film.directorName}">${film.directorName}</a> </li>
+										<li><strong>Acteurs principaux : </strong> <a href="./actor?name=${film.actor1Name}">${film.actor1Name}</a>, <a href="./actor?name=${film.actor2Name}">${film.actor2Name}</a>, <a href="./actor?name=${film.actor3Name}">${film.actor3Name}</a> </li>
 									</ul>
 								</div>
 							</div> <!-- .row -->

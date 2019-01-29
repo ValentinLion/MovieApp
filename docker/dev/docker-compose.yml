@@ -1,13 +1,40 @@
 version: '3'
 services:
-  movie_dev:
-    image: tomcat
+  movie_dev_1:
+    image: java
     restart: always
     networks:
        - legacy
+    expose:
+       - "8080"
     hostname: "movie_dev_1"
     volumes:
-       - ./movie.war:/usr/local/tomcat/webapps/movie_dev.war
+       - ./movie.jar:/movie.jar
+    command: java -jar movie.jar
+  
+  movie_dev_2:
+    image: java
+    restart: always
+    networks:
+       - legacy
+    expose:
+       - "8080"
+    hostname: "movie_dev_2"
+    volumes:
+       - ./movie.jar:/movie.jar
+    command: java -jar movie.jar
+       
+  movie_dev_3:
+    image: java
+    restart: always
+    networks:
+       - legacy
+    expose:
+       - "8080"
+    hostname: "movie_dev_3"
+    volumes:
+       - ./movie.jar:/movie.jar
+    command: java -jar movie.jar
 networks:
     legacy:
       external: true

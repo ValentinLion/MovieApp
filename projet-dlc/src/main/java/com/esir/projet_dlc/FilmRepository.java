@@ -10,4 +10,7 @@ import org.springframework.stereotype.Repository;
 public interface FilmRepository extends JpaRepository<Film, Long> {
 
     List<Film> findByMovieTitle(@Param("title")String title);
+    List<Film> findByActor(@Param("name")String name);
+    List<Film> findByDirector(@Param("name")String name);
+
 }
