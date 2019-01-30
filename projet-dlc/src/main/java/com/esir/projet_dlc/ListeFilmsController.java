@@ -110,6 +110,20 @@ public class ListeFilmsController {
 
 	}
 
+
+	@GetMapping("/")
+	public String voirListeFilmsIndex(Map<String, Object> model, @RequestParam(name="page", required=false, defaultValue="1") int page) {
+
+
+		List<Film> listeFilms = filmRepository.findAll(new PageRequest(page-1, 10)).getContent();	
+
+		model.put("listeFilms", listeFilms);
+		model.put("page", page);
+
+		return "liste";
+
+	}
+	
 	@GetMapping("/liste")
 	public String voirListeFilms(Map<String, Object> model, @RequestParam(name="page", required=false, defaultValue="1") int page) {
 
