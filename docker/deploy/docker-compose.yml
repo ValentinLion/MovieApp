@@ -1,11 +1,29 @@
 version: '3'
 services:
   movie_deploy_1:
-    image: tomcat
+    image: tomcat_custom
     restart: always
     networks:
        - legacy
     hostname: "movie_deploy_1"
+    volumes:
+       - ./movie.war:/usr/local/tomcat/webapps/movie.war
+       
+  movie_deploy_2:
+    image: tomcat_custom
+    restart: always
+    networks:
+       - legacy
+    hostname: "movie_deploy_2"
+    volumes:
+       - ./movie.war:/usr/local/tomcat/webapps/movie.war
+       
+  movie_deploy_3:
+    image: tomcat_custom
+    restart: always
+    networks:
+       - legacy
+    hostname: "movie_deploy_3"
     volumes:
        - ./movie.war:/usr/local/tomcat/webapps/movie.war
    
