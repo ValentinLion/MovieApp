@@ -1,6 +1,6 @@
 version: '3'
 services:
-  movie_dev_1:
+   movie_dev_1:
     image: tomcat
     restart: always
     networks:
@@ -10,8 +10,8 @@ services:
     hostname: "movie_dev_1"
     volumes:
        - ./movie.war:/usr/local/tomcat/webapps/movie.war
-  
-movie_dev_2:
+       
+   movie_dev_2:
     image: tomcat
     restart: always
     networks:
@@ -22,7 +22,7 @@ movie_dev_2:
     volumes:
        - ./movie.war:/usr/local/tomcat/webapps/movie.war
        
-movie_dev_3:
+   movie_dev_3:
     image: tomcat
     restart: always
     networks:
