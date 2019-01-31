@@ -5,11 +5,33 @@ services:
     restart: always
     networks:
        - legacy
-    ports:
-       - "8081:8080"
+    expose:
+       - "8080"
     hostname: "movie_dev_1"
     volumes:
-       - ./movie.war:/usr/local/tomcat/webapps/movie.war    
+       - ./movie.war:/usr/local/tomcat/webapps/movie.war
+       
+  movie_dev_2:
+    image: tomcat_custom
+    restart: always
+    networks:
+       - legacy
+    expose:
+       - "8080"
+    hostname: "movie_dev_2"
+    volumes:
+       - ./movie.war:/usr/local/tomcat/webapps/movie.war
+       
+  movie_dev_3:
+    image: tomcat_custom
+    restart: always
+    networks:
+       - legacy
+    expose:
+       - "8080"
+    hostname: "movie_dev_3"
+    volumes:
+       - ./movie.war:/usr/local/tomcat/webapps/movie.war
 networks:
     legacy:
       external: true
