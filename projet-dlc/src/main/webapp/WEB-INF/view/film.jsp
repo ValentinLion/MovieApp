@@ -12,7 +12,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
 		
-		<title>Fiche du réalisateur</title>
+		<title>Fiche du film</title>
 
 		<!-- Loading third party fonts -->
 		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
@@ -40,7 +40,7 @@
 					<a href="./liste" id="branding">
 						<img src="images/logo.png" alt="" class="logo">
 						<div class="logo-copy">
-							<h1 class="site-title">Pug's Movies</h1>
+							<h1 class="site-title">Pug's Movies v4</h1>
 							<small class="site-description"></small>
 						</div>
 					</a> <!-- #branding -->
@@ -48,7 +48,7 @@
 					<div class="main-navigation">
 						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
 						<ul class="menu">
-							<li class="menu-item"><a href="./liste">Home</a></li>
+							<li class="menu-item"><a href="./liste">Accueil</a></li>
 							<li class="menu-item"><a href="./liste">Trouver un film</a></li>
 							<li class="menu-item"><a href="./addMovie">Ajouter un film</a></li>
 						</ul> <!-- .menu -->
