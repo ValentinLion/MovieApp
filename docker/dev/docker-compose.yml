@@ -11,31 +11,7 @@ services:
     volumes:
        - ./movie.war:/movie.war
     command: java -jar movie.war
-   
-   movie_dev_2:
-    image: java
-    restart: always
-    networks:
-       - legacy
-    expose:
-       - "8080"
-    hostname: "movie_dev_2"
-    volumes:
-       - ./movie.war:/movie.war
-    command: java -jar movie.war
-   
-   movie_dev_3:
-    image: java
-    restart: always
-    networks:
-       - legacy
-    expose:
-       - "8080"
-    hostname: "movie_dev_3"
-    volumes:
-       - ./movie.war:/movie.war
-    command: java -jar movie.war
-       
+    
 networks:
     legacy:
       external: true
