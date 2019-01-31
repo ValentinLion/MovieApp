@@ -16,12 +16,9 @@
 		<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
     	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-    	<link rel="stylesheet" href="/webjars/font-awesome/css/font-awesome.min.css"></link>
-
 
 		<!-- Loading third party fonts -->
 		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
-		<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 		<!-- Loading main css file -->		
 		<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
@@ -84,8 +81,16 @@
 										<a href="./film?id=${film.idData}"><c:out value="${film.movieTitle}" /></a>
 									</div>
 									<script>
-										tableauIdPoster.push("poster${film.idData}");
-										tableauNomFilm.push("${film.movieTitle}");
+										
+										var urlPoster = "${film.urlPosterMovie}";
+	
+										if( urlPoster != "" ){
+											document.getElementById("poster${film.idData}").src=urlPoster;
+										}
+										else{
+											tableauIdPoster.push("poster${film.idData}");
+											tableauNomFilm.push("${film.movieTitle}");
+										}
 										tableauIdResume.push("resume${film.idData}");
 									</script>
 									<ul class="movie-meta">
@@ -195,27 +200,25 @@
 		<script src="js/app.js"></script>
 		
 		<script>
-						tableauIdPoster.forEach(function(item, index, array) {
+						tableauIdPoster.forEach(function(item, index, array) {					
 						
-							var xhttp = new XMLHttpRequest();
-										xhttp.onreadystatechange = function() {
-										    if (this.readyState == 4 && this.status == 200) {
-										        var response = xhttp.responseText;		        
-										        obj = JSON.parse(response);
-										        document.getElementById(tableauIdPoster[index]).src=obj.Poster;
-										        document.getElementById(tableauIdResume[index]).innerHTML=obj.Plot;
-										        
-										    }
-										};
-																				
-										xhttp.open("GET", "http://www.omdbapi.com/?t="+tableauNomFilm[index]+"&apikey=7e3e8f28", true);
-										
-										xhttp.send();
-						
-						});						
-										
+								var xhttp = new XMLHttpRequest();
+											xhttp.onreadystatechange = function() {
+											    if (this.readyState == 4 && this.status == 200) {
+											        var response = xhttp.responseText;		        
+											        obj = JSON.parse(response);
+											        document.getElementById(tableauIdPoster[index]).src=obj.Poster;
+											        document.getElementById(tableauIdResume[index]).innerHTML=obj.Plot;
+											        
+											    }
+											};
+																					
+											xhttp.open("GET", "http://www.omdbapi.com/?t="+tableauNomFilm[index]+"&apikey=7e3e8f28", true);
+											
+											xhttp.send();
+							
+							});											
 		</script>
-		
 	</body>
 
 </html>

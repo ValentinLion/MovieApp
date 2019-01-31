@@ -68,10 +68,13 @@ public class ListeFilmsController {
 			,@RequestParam(name="actor2", required=false, defaultValue="") String actor2
 			,@RequestParam(name="actor1", required=false, defaultValue="") String actor1
 			,@RequestParam(name="genres", required=false, defaultValue="") String genres
-			,@RequestParam(name="duration", required=false, defaultValue="") String duration
+			,@RequestParam(name="duration", required=false, defaultValue="0") String duration
 			,@RequestParam(name="titleYear", required=false, defaultValue="") String titleYear
 			,@RequestParam(name="directorName", required=false, defaultValue="") String directorName
-			,@RequestParam(name="imdbScore", required=false, defaultValue="") String imdbScore){
+			,@RequestParam(name="imdbScore", required=false, defaultValue="0") String imdbScore
+			,@RequestParam(name="urlPosterMovie", required=false, defaultValue="") String urlPosterMovie
+			)
+	{
 
 		Film film = new Film();
 		film.setGenres(genres);
@@ -79,10 +82,14 @@ public class ListeFilmsController {
 		film.setMovieTitle(name);
 		film.setDirectorName(directorName);
 		film.setTitleYear(titleYear);
-		film.setImdbScore(Float.parseFloat(imdbScore));
+		film.setImdbScore((float)Integer.parseInt(imdbScore));
 		film.setActor1Name(actor1);
 		film.setActor2Name(actor2);
 		film.setActor3Name(actor3);
+		
+		if(!urlPosterMovie.equals("")) {
+			film.setUrlPosterMovie(urlPosterMovie);
+		}
 		
 		film = filmRepository.save(film);
 		

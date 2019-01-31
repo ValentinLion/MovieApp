@@ -83,6 +83,18 @@ public class Film implements Serializable {
 	
 	@Column(name = "actor_2_name")
     private String actor2Name;
+	
+	@Column(name = "url_poster_movie")
+    private String urlPosterMovie;
+
+
+	public String getUrlPosterMovie() {
+		return urlPosterMovie;
+	}
+
+	public void setUrlPosterMovie(String urlPosterMovie) {
+		this.urlPosterMovie = urlPosterMovie;
+	}
 
 	public Long getIdData() {
 		return idData;

@@ -12,7 +12,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
 		
-		<title>Fiche de film</title>
+		<title>Ajout d'un film</title>
 
 		<!-- Loading third party fonts -->
 		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
@@ -20,12 +20,9 @@
 			<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
     	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-    	<link rel="stylesheet" href="/webjars/font-awesome/css/font-awesome.min.css"></link>
-
 
 		<!-- Loading third party fonts -->
 		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
-		<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 		<!-- Loading main css file -->		
 		<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
@@ -97,12 +94,13 @@
 										<input type="text" name="actor3"><br><br>
 										Score : <br>
 										<input type="number" min="0" max="10"  name="imdbScore"><br><br>
+										Url poster : <br>
+										<input type="text"  name="urlPosterMovie"><br><br>
 								</div>
-								<input type="submit"/>		
+								<input type="submit" value="Ajouter le film"/>		
 								
 							</form>
 							</div> <!-- .row -->
-							
 						</div>
 					</div>
 				</div> <!-- .container -->

@@ -12,7 +12,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
 		
-		<title>Fiche de film</title>
+		<title>Fiche du réalisateur</title>
 
 		<!-- Loading third party fonts -->
 		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
@@ -20,12 +20,9 @@
 			<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
     	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-    	<link rel="stylesheet" href="/webjars/font-awesome/css/font-awesome.min.css"></link>
-
 
 		<!-- Loading third party fonts -->
 		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
-		<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 		<!-- Loading main css file -->		
 		<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
@@ -89,6 +86,7 @@
 									<ul class="starring">
 										<li><strong>Réalisateur :</strong> <a href="./director?name=${film.directorName}">${film.directorName}</a> </li>
 										<li><strong>Acteurs principaux : </strong> <a href="./actor?name=${film.actor1Name}">${film.actor1Name}</a>, <a href="./actor?name=${film.actor2Name}">${film.actor2Name}</a>, <a href="./actor?name=${film.actor3Name}">${film.actor3Name}</a> </li>
+										<li><strong>Résumé : </strong><p id="plotP"></p></li>
 									</ul>
 								</div>
 							</div> <!-- .row -->
@@ -169,18 +167,26 @@
 
 	<script>
 	
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function() {
-		    if (this.readyState == 4 && this.status == 200) {
-		        var response = xhttp.responseText;		        
-		        obj = JSON.parse(response);		        
-		        document.getElementById("imgPoster").src=obj.Poster;
-		    }
-		};
-		xhttp.open("GET", "http://www.omdbapi.com/?t=${film.movieTitle}&apikey=7e3e8f28", true);
+		var urlPoster = "${film.urlPosterMovie}";
+	
+		if( urlPoster != "" ){
+			document.getElementById("imgPoster").src=urlPoster;
+		}
+		else{
 		
-		xhttp.send();
-		
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+			    if (this.readyState == 4 && this.status == 200) {
+			        var response = xhttp.responseText;		        
+			        obj = JSON.parse(response);		        
+			        document.getElementById("imgPoster").src=obj.Poster;
+			        document.getElementById("plotP").innerHTML=obj.Plot;
+			    }
+			};
+			xhttp.open("GET", "http://www.omdbapi.com/?t=${film.movieTitle}&apikey=7e3e8f28", true);
+			
+			xhttp.send();
+		}
 	</script>
 
 </html>
