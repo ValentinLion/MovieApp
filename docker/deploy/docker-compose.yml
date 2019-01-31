@@ -5,6 +5,8 @@ services:
     restart: always
     networks:
        - legacy
+    expose:
+       - "8080"
     hostname: "movie_deploy_1"
     volumes:
        - ./movie.war:/usr/local/tomcat/webapps/movie.war
@@ -14,6 +16,8 @@ services:
     restart: always
     networks:
        - legacy
+    expose:
+       - "8080"
     hostname: "movie_deploy_2"
     volumes:
        - ./movie.war:/usr/local/tomcat/webapps/movie.war
@@ -23,6 +27,8 @@ services:
     restart: always
     networks:
        - legacy
+    expose:
+       - "8080"
     hostname: "movie_deploy_3"
     volumes:
        - ./movie.war:/usr/local/tomcat/webapps/movie.war
