@@ -78,7 +78,7 @@
 									<br/><br/>
 									<ul style="height:200px;overflow:hidden; overflow-y:scroll;" class="movie-meta">
 										<c:forEach items="${listeFilmsActeur}" var="film">
-											<li><a href="/film?id=${film.idData}">${film.movieTitle}</a></li>
+											<li><a href="./film?id=${film.idData}">${film.movieTitle}</a></li>
 										</c:forEach>
 									</ul>
 
