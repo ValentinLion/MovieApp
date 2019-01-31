@@ -5,6 +5,8 @@ services:
     restart: always
     networks:
        - legacy
+    expose:
+       - "8080"
     hostname: "movie_dev_1"
     volumes:
        - ./movie.war:/usr/local/tomcat/webapps/movie.war
