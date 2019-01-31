@@ -1,7 +1,7 @@
 version: '3'
 services:
   movie_dev_1:
-    image: tomcat
+    image: tomcat:8-jre8-slim
     restart: always
     networks:
        - legacy
