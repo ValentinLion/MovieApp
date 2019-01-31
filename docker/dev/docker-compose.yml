@@ -9,7 +9,8 @@ services:
        - "8080"
     hostname: "movie_dev_1"
     volumes:
-       - ./movie.war:./movie.war
+       - ./movie.war:/movie.war
+    command: java -jar movie.war
        
 networks:
     legacy:
