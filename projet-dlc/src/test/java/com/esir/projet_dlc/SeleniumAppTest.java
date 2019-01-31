@@ -17,14 +17,9 @@ import org.openqa.selenium.firefox.FirefoxOptions;
  */
 public class SeleniumAppTest extends TestCase {
 	private WebDriver driver;
-	private String URL = "http://148.60.11.117/movie/";
-
-	@Test
-	public void test(){
-		
-	}
+	private String URL = "http://148.60.11.117:8081/movie/";
 	
-	/*@Before
+	@Before
 	public void setUp() throws Exception {
 
 	    FirefoxBinary firefoxBinary = new FirefoxBinary();
@@ -63,7 +58,7 @@ public class SeleniumAppTest extends TestCase {
 	public static TestSuite suite()
 	{
 	    return new TestSuite( SeleniumAppTest.class );
-	}*/
+	}
 }
 
 
