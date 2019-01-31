@@ -8,24 +8,6 @@ services:
     hostname: "movie_deploy_1"
     volumes:
        - ./movie.war:/usr/local/tomcat/webapps/movie.war
-       
-  movie_deploy_2:
-    image: tomcat
-    restart: always
-    networks:
-       - legacy
-    hostname: "movie_deploy_2"
-    volumes:
-       - ./movie.war:/usr/local/tomcat/webapps/movie.war
-       
-  movie_deploy_3:
-    image: tomcat
-    restart: always
-    networks:
-       - legacy
-    hostname: "movie_deploy_3"
-    volumes:
-       - ./movie.war:/usr/local/tomcat/webapps/movie.war
    
 networks:
     legacy:
