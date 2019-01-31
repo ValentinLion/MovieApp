@@ -35,7 +35,7 @@ public class SeleniumAppTest extends TestCase {
 		assertEquals(URL + "liste", driver.getCurrentUrl());
 	}
 
-	/*
+	
 	public void testSearch() throws Exception {
 		driver.get(URL + "liste");
 		WebElement element = driver.findElement(By.name("query"));
@@ -48,7 +48,7 @@ public class SeleniumAppTest extends TestCase {
 		driver.get(URL + "liste");
 		driver.findElement(By.cssSelector(".movie:nth-child(10) a")).click();
 		assertEquals(URL + "film?id=11", driver.getCurrentUrl());
-	}*/
+	}
 
 	@After
 	public void tearDown() throws Exception {
