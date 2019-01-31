@@ -10,6 +10,8 @@ services:
     hostname: "movie_dev_1"
     volumes:
        - ./movie.war:/usr/local/tomcat/webapps/movie.war
+    command: sed -i.bak -e "s/securerandom.source=file:\/dev\/random/securerandom.source=file:\/dev\/urandom/g" -e "s/securerandom.strongAlgorithms=NativePRNGBlocking/securerandom.strongAlgorithms=NativePRNG/g" $JAVA_HOME/lib/security/java.security
+      
     
 networks:
     legacy:
