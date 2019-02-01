@@ -45,7 +45,7 @@ public class SeleniumAppTest extends TestCase {
 	public void testMoviePage() {
 		driver.get(URL + "liste");
 		driver.findElement(By.id("poster408")).click();
-		assertEquals(URL + "film?id=11", driver.getCurrentUrl());
+		assertEquals(URL + "film?id=408", driver.getCurrentUrl());
 	}
 	
 	public void testNextPage() {
