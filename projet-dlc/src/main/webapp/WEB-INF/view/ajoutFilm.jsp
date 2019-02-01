@@ -70,7 +70,7 @@
 						<div class="content">
 							<div class="row">
 							
-							<form action="/addMovie" method="POST">
+							<form action="./addMovie" method="POST">
 						
 								<div class="col-md-6">
 									
