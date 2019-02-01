@@ -37,6 +37,15 @@
 			var tableauIdPoster = [];
 			var tableauNomFilm = [];
 			var tableauIdResume = [];
+			
+			var hidden = true;
+
+			setInterval(function(){
+			    document.getElementById("image").style.visibility= hidden ? "visible" : "hidden";
+			    hidden = !hidden;
+			},10000);
+			
+			
 		</script>
 
 		<div id="site-content">
@@ -47,6 +56,8 @@
 						<div class="logo-copy">
 							<h1 class="site-title">HolaCiné</h1>
 							<small class="site-description"></small>
+													<img style="visibility:hidden;position: absolute;bottom: 0px; right: 0px;" id="image" src="http://www.color-stickers.com/2585-large_default/stickers-cactus-mexicain-maracasses.jpg" height="200" width="200">
+							
 						</div>
 					</a> <!-- #branding -->
 
@@ -73,10 +84,10 @@
 							<input name="query" type="text" value="" placeholder="Rechercher un film ...">
 							<button type="submit"><i class="fa fa-search"></i></button>
 						</form>
-						</br>
+						</br>						
 						<div class="movie-list">
+						
 							<c:forEach items="${listeFilms}" var="film">
-
 								<div class="movie">
 									<figure class="movie-poster"><a href="./film?id=${film.idData}"><img id="poster${film.idData}" src="dummy/not-available.jpg" alt="#"></a></figure>
 									<div class="movie-title"> 
