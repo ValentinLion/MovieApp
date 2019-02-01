@@ -12,10 +12,12 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
 		
-		<title>Pug's Movies v1 | Films</title>
+		<title>HolaCiné | Films</title>
 		<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
     	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    	<link rel="stylesheet" href="/webjars/font-awesome/css/font-awesome.min.css"></link>
+		<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 		<!-- Loading third party fonts -->
 		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
@@ -43,7 +45,7 @@
 					<a href="./liste" id="branding">
 						<img src="images/logo.png" alt="" class="logo">
 						<div class="logo-copy">
-							<h1 class="site-title">Pug's Movies v4</h1>
+							<h1 class="site-title">HolaCiné</h1>
 							<small class="site-description"></small>
 						</div>
 					</a> <!-- #branding -->
@@ -188,7 +190,7 @@
 						</div>
 					</div> <!-- .row -->
 
-					<div class="colophon">Copyright 2018 Pug's Movies, Designed by Themezy. All rights reserved</div>
+					<div class="colophon">Copyright 2018 HolaCiné, Designed by Themezy. All rights reserved</div>
 				</div> <!-- .container -->
 
 			</footer>
