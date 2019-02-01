@@ -3,8 +3,8 @@ package com.esir.projet_dlc;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,12 +18,12 @@ public class SeleniumAppTest extends TestCase {
 	private WebDriver driver;
 	private String URL = "http://148.60.11.117:8081/movie/";
 	
-	@Before
+	@BeforeClass
 	public void setUp() throws Exception {
 
 	    FirefoxBinary firefoxBinary = new FirefoxBinary();
 	    firefoxBinary.addCommandLineOptions("--headless");
-	    System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
+	    System.setProperty("webdriver.gecko.driver", "/home/geckodriver");
 	    FirefoxOptions firefoxOptions = new FirefoxOptions();
 	    firefoxOptions.setBinary(firefoxBinary);
 	    driver = new FirefoxDriver(firefoxOptions);
@@ -90,7 +90,7 @@ public class SeleniumAppTest extends TestCase {
 		assertEquals(URL + "addMovie", driver.getCurrentUrl());
 	}
 	
-	@After
+	@AfterClass
 	public void tearDown() throws Exception {
 		driver.quit();
 	}
