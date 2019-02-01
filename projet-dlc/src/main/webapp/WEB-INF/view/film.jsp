@@ -40,7 +40,7 @@
 					<a href="./liste" id="branding">
 						<img src="images/logo.png" alt="" class="logo">
 						<div class="logo-copy">
-							<h1 class="site-title">Pug's Movies v4</h1>
+							<h1 class="site-title">HolaCiné</h1>
 							<small class="site-description"></small>
 						</div>
 					</a> <!-- #branding -->
@@ -157,7 +157,7 @@
 						</div>
 					</div> <!-- .row -->
 
-					<div class="colophon">Copyright 2018 Pug's Movies, Designed by Themezy. All rights reserved</div>
+					<div class="colophon">Copyright 2018 HolaCiné, Designed by Themezy. All rights reserved</div>
 				</div> <!-- .container -->
 
 			</footer>
